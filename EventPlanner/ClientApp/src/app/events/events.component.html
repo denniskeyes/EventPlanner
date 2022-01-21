@@ -1,0 +1,18 @@
+<!-- TODO (future): Add sorting selections: By date, name, presenter, or location -->
+
+<div *ngIf="loaded">
+  <!--<div class="card-columns">-->
+    <div *ngFor="let event of allEvents" class="card col col-md-12" style="background-color:cornflowerblue; margin-bottom: 10px;">
+      <div class="container" [routerLink]="['/events', event.id]">
+        <div class="card-body">
+          <h2 class="card-title justify-content-between w-100 d-flex">{{ event?.name }} <button class="btn btn-sm btn-danger" [routerLink]="['/events/delete', event.id]">Delete</button></h2>
+          <h4 class="card-subtitle mb-2 text-light">Presented by: {{ event?.presenter }}</h4>
+          <div class="card-text"><strong>Date:</strong> {{ event?.date | date:'shortDate' }}</div>
+          <div class="card-text"><strong>Duration:</strong> {{ event?.duration }} hours</div>
+          <div class="card-text"><strong>Location:</strong> {{ event?.location }}</div>
+          <div class="card-text"><strong>Event Description:</strong> {{ event?.description }}</div>
+        </div>
+      </div>
+    </div>
+  <!--</div>-->
+</div> 
