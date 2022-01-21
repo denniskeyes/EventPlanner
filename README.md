@@ -1,5 +1,7 @@
 # EventPlanner
  
+Event Planner with Angular 8 front-end, .NET 5 with ASP.NET Core Web API and Entity Framework back-end
+
 Setting up dev environment:
 
 1. npm install
