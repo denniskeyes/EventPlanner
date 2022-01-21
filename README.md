@@ -11,4 +11,5 @@ Setting up dev environment:
          dotnet ef migrations add InitialDb
      <br />
          dotnet ef database update
-4. Debug (F5) in Visual Studio to launch dev server and browser
+4. Run the sql script EventPlanner_SampleDbData located in the project root to populate the database with sample events
+5. Debug (F5) in Visual Studio to launch dev server and browser
