@@ -84,17 +84,22 @@ namespace EventPlanner.Controllers
         }
 
         // TODO (future): tie this in with user credentials/authorization to allow event deletion
-        //[HttpPut]
-        //public async Task<ActionResult<Event>> UpdateEvent([FromBody] Event updatedEvent)
-        //{
-        //    // Check if event's id exists in db
-        //    if (!_context.Events.Any(e => e.Id == updatedEvent.Id))
-        //    {
-        //        return NotFound(); // return message that says "event not found"
-        //    }
+        [HttpPut("update-event/{id}")]
+        public async Task<ActionResult<Event>> UpdateEvent(int id, [FromBody] Event updatedEvent)
+        {
+            // Check if event's id exists in db
+            if (!_context.Events.Any(e => e.Id == id))
+            {
+                return NotFound(); // return message that says "event not found"
+            }
 
-        //    // Update entry with updatedEvent
-        //    return NotFound();
-        //}
+            updatedEvent.Id = id;
+
+            // Update entry with updatedEvent
+            _context.Events.Update(updatedEvent);
+            await _context.SaveChangesAsync();
+
+            return Ok(updatedEvent);
+        }
     }
 }

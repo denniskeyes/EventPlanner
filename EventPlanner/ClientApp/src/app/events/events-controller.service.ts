@@ -32,6 +32,11 @@ export class EventsControllerService {
     return this.http.delete<IEvent>(`./api/controller/delete-event/${id}`)
       .pipe(catchError(handleError<IEvent>('deleteEvent')));
   }
+
+  updateEvent(id: number, event: IEvent): Observable<IEvent> {
+    return this.http.put<IEvent>(`./api/controller/update-event/${id}`, event, this.options)
+      .pipe(catchError(handleError<IEvent>('getEvent')));
+  }
 }
 
 // rxjs error handler
