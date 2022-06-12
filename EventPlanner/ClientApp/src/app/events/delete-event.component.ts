@@ -6,7 +6,7 @@ import { IEvent } from './IEvent';
 @Component({
   selector: 'app-delete-event',
   templateUrl: './delete-event.component.html',
-  styleUrls: ['./delete-event.component.css']
+  styleUrls: ['./delete-event.component.scss']
 })
 export class DeleteEventComponent implements OnInit {
 
